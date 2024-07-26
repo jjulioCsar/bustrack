@@ -16,12 +16,12 @@ export const puxarLinhas = (req, res) => {
 export const cadastrarLinha = (req, res) => {
     const { nome_linha, numero_linha, itinerario } = req.body;
 
-    // Validações
+    
     if (!nome_linha) return res.status(400).json({ msg: "O nome_linha da linha é obrigatório" });
     if (!numero_linha) return res.status(400).json({ msg: "O numero da linha é obrigatório" });
     if (!itinerario) return res.status(400).json({ msg: "O itinerario é obrigatório" });
 
-    // Verificar se o cliente já existe
+
     const checkSql = `SELECT * FROM Linhas WHERE nome_linha = ? AND numero_linha = ? AND itinerario = ?`;
     const checkValues = [nome_linha, numero_linha, itinerario];
 
@@ -76,7 +76,7 @@ export const editarLinha = (req, res) => {
     const { id } = req.params;
     const { nome_linha, numero_linha, itinerario} = req.body;
 
-    // Validações
+  
     if (!nome_linha) return res.status(400).json({ msg: "O nome da linha é obrigatório" });
     if (!numero_linha) return res.status(400).json({ msg: "O numero da linha é obrigatório" });
     if (!itinerario) return res.status(400).json({ msg: "O itinerario é obrigatório" });
@@ -93,7 +93,7 @@ export const editarLinha = (req, res) => {
             return res.status(404).json({ msg: "Linha não encontrada" });
         }
 
-        // Consulta SQL para atualizar cliente
+       
         const updateSql = `UPDATE Linhas SET nome_linha = ?, numero_linha = ?, itinerario = ? WHERE linha_id = ?`;
         const updateValues = [nome_linha, numero_linha, itinerario, id];
 

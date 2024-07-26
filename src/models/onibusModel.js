@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS Onibus (
     onibus_id INT AUTO_INCREMENT PRIMARY KEY,
     linha_id INT NOT NULL,
     motorista_id INT NOT NULL,
-    placa VARCHAR(7) NOT NULL,
+    placa VARCHAR(8) NOT NULL,
     modelo VARCHAR(60) NOT NULL,
     ano_fabricacao YEAR NOT NULL,
     capacidade VARCHAR(3) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS Onibus (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
     FOREIGN KEY (linha_id) REFERENCES Linhas(linha_id),
-    FOREIGN KEY (motorista_id) REFERENCES Motoristas(motorista_id)
+    foreign key (motorista_id) references Motoristas(motorista_id)
 );
 `;
 
